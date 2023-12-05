@@ -219,6 +219,50 @@ fn main() {
     for ch in 'a'..='z' {
         println!("{ch}");
     }
+
+    // 函数
+    print_a_b(5, 'h');
+
+    // 闭包
+    fn add_one_v1 (x: u32) -> u32 { x + 1 }
+    println!("{}", add_one_v1(10));
+    let add_one_v2 = |x: u32| -> u32 { x + 1 };
+    println!("{}", add_one_v2(11));
+    let add_one_v3 = |x| {x + 1};
+    println!("{:?}", add_one_v3(12));
+    let add_one_v4 = |x| x + 1;
+    println!("{:?}", add_one_v4(13));
+
+    let a = 10u32;
+    // fn add_v1 (x: u32) -> u32 { x + a }
+
+    let add_v2 = |x: u32| -> u32 {x + a};
+
+    println!("{}", add_v2(20));
+
+    // 测试
+}
+
+mod tests {
+    use crate::print_a_b;
+
+    #[test]
+    fn it_works() {
+        let result = print_a_b(10, 'a');
+        assert_eq!(result, 10);
+    }
+}
+
+
+//Rust Syntax：语法高亮
+// crates：分析项目依赖
+// Even Better Toml：项目配置管理
+// Rust Test Lens：Rust快速测试
+
+
+fn print_a_b(a: i32, b: char) -> (i32) {
+    println!("The value of a b is: {a}{b}");
+    a
 }
 
 
